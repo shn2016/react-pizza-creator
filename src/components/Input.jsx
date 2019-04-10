@@ -18,9 +18,9 @@ export default class Input extends React.Component {
       dirty: true,
     });
 
-    onDataChange(value);   
+    onDataChange(value);
   }
-  
+
   render() {
     const {
       label,
@@ -39,10 +39,10 @@ export default class Input extends React.Component {
     return (
       <div className={`form-control ${showError && 'error'}`}>
         <label>{label}</label>
-        <input 
+        <input
           value={value}
           onChange={this.onChange}
-          type="text" 
+          type="text"
         />
         <div className="validation-error">{showError && validationMessage}</div>
       </div>

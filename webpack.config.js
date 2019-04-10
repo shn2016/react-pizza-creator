@@ -1,18 +1,18 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
-  mode:'development',
+  mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
     // to find the dist in the current path = ./dist
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
-  plugins:[
+  plugins: [
     new HtmlWebpackPlugin({
       title: 'Custom template',
-      template: './src/index.html'
+      template: './src/index.html',
     }),
   ],
   module: {
@@ -31,17 +31,16 @@ module.exports = {
         ],
       },
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         use: [
           {
             loader: 'babel-loader',
             options: {
-              presets:['@babel/preset-react']
+              presets: ['@babel/preset-react'],
             },
           },
         ],
       },
     ],
-  } ,
-
-};
+  },
+}
