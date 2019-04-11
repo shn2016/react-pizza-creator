@@ -39,7 +39,7 @@ export default class PizzaCreator extends React.Component {
     const isExists = selectedToppings.find(({ name }) => name === topping.name);
 
     const newSelectedToppings = !isExists
-      ? [{ ...topping, amount: 1 }, ...selectedToppings]
+      ? [...selectedToppings, { ...topping, amount: 1 }]
       : selectedToppings.filter(({ name }) => name !== topping.name);
 
     this.setState({

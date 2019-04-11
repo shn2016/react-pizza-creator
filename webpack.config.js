@@ -6,7 +6,6 @@ module.exports = {
   mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    // to find the dist in the current path = ./dist
     filename: 'bundle.js',
   },
   plugins: [
@@ -36,11 +35,14 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-react'],
+              presets: ['@babel/preset-env', '@babel/preset-react'],
             },
           },
         ],
       },
     ],
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx']
   },
 }

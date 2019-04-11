@@ -5,7 +5,7 @@ const Button = ({ onPlaceButtonClick, onResetButtonClick }) => (
     <button type="submit" onClick={() => onPlaceButtonClick()} key="placeButton">
       Place Order
     </button>
-    <button type="button" onClick={() => onResetButtonClick()} key="resetButton">
+    <button type="reset" onClick={() => onResetButtonClick()} key="resetButton">
       Clear
     </button>
   </div>

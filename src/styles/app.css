@@ -13,6 +13,7 @@ body {
   width: 500px;
   height: 350px;
   position: relative;
+  margin: 100px 20px 0;
 }
 .pizza-container > * {
   position: absolute;
@@ -22,43 +23,17 @@ body {
   left: 90px;
 }
 .pizza-container > .pizza-toppings {
-  width: 70%;
-  left: 100px;
+  width: 50%;
+  left: 165px;
+  top: 50px;
 }
 .pizza-container > .pizza-board {
   width: 100%;
 }
-.pizza-container img {
-  margin: 100px 20px 0;
-}
 .pizza-toppings img {
-  width: 20%;
-  margin-top: 120px;
-  position: absolute;
-}
-.pizza-toppings img:nth-child(1){
-  padding: 30px;
-}
-.pizza-toppings img:nth-child(2){
-  padding: 65px;
-}
-.pizza-toppings img:nth-child(3){
-  padding: 100px;
-}
-.pizza-toppings img:nth-child(4){
-  padding: 100px 160px;
-}
-.pizza-toppings img:nth-child(5){
-  padding: 60px 130px;
-}
-.pizza-toppings img:nth-child(6){
-  padding: 70px 190px;
-}
-.pizza-toppings img:nth-child(7){
-  padding: 20px 20px 50px 100px;
-}
-.pizza-toppings img:nth-child(8){
-  padding: 30px 200px;
+  max-width: 21%;
+  padding: 2px;
+  height: auto;
 }
 
 /* the main part of form */
@@ -218,6 +193,9 @@ button.amount:active {
   background: #1a98e1;
   color: white;
 }
+
+
+/* submit modal */
 .modal {
   position: fixed;
   top: 0;

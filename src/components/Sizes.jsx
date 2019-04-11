@@ -30,7 +30,7 @@ class Sizes extends React.Component {
       <div className="size">
         <div className="pizza-size" key="pizza-size">
           {pizzaSizes.map((pizzaSize) => {
-            const { name, size, image } = pizzaSize;
+            const { name, image } = pizzaSize;
             return (
               <div
                 className={`img ${name} ${(selectedSize && name === selectedSize.name) ? 'active' : null}`}
@@ -38,7 +38,7 @@ class Sizes extends React.Component {
                 key={name}
               >
                 <img alt={name} src={image} className="pizzaImg" />
-                <span>{`${name} ${size}''`}</span>
+                <span>{`${name}''`}</span>
               </div>
             );
           })}

@@ -5,4 +5,3 @@ import './styles/app.css';
 
 
 ReactDOM.render(<PizzaCreator />, document.querySelector('#app'));
-//  ReactDOM.render("Hello World", document.querySelector('#app'));
