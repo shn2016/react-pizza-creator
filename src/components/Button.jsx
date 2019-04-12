@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Button = ({ onPlaceButtonClick, onResetButtonClick }) => (
   <div className="section">
@@ -12,3 +13,8 @@ const Button = ({ onPlaceButtonClick, onResetButtonClick }) => (
 );
 
 export default Button;
+
+Button.propTypes = {
+  onPlaceButtonClick: PropTypes.func.isRequired,
+  onResetButtonClick: PropTypes.func.isRequired,
+};

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import getProductsByType from '../services/getProductsByType';
+import ProductPropTypes from '../PropTypes/ProductPropTypes';
 
 class Sizes extends React.Component {
   constructor(props) {
@@ -48,13 +49,6 @@ class Sizes extends React.Component {
     );
   }
 }
-
-const ProductPropTypes = {
-  image: PropTypes.string,
-  name: PropTypes.string,
-  price: PropTypes.number,
-  type: PropTypes.string,
-};
 
 Sizes.defaultProps = {
   selectedSize: undefined,

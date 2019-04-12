@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import ProductPropTypes from '../PropTypes/ProductPropTypes';
 
 
 const Summary = ({
-  selectedToppings, 
+  selectedToppings,
   selectedSize,
   onAddToppingClick,
   onMinusToppingClick,
@@ -47,5 +49,16 @@ const Summary = ({
     })}
   </ul>
 );
+
+Summary.defaultProps = {
+  selectedSize: undefined,
+};
+
+Summary.propTypes = {
+  selectedToppings: PropTypes.arrayOf(PropTypes.shape(ProductPropTypes)).isRequired,
+  selectedSize: PropTypes.shape(ProductPropTypes),
+  onAddToppingClick: PropTypes.func.isRequired,
+  onMinusToppingClick: PropTypes.func.isRequired,
+};
 
 export default Summary;

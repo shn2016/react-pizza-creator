@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import getProductsByType from '../services/getProductsByType';
+import ProductPropTypes from '../PropTypes/ProductPropTypes';
 
 export default class Toppings extends React.Component {
   constructor(props) {
@@ -52,5 +53,6 @@ export default class Toppings extends React.Component {
 }
 
 Toppings.propTypes = {
+  selectedToppings: PropTypes.arrayOf(PropTypes.shape(ProductPropTypes)).isRequired,
   onToppingClick: PropTypes.func.isRequired,
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class Input extends React.Component {
   constructor(props) {
@@ -9,6 +10,16 @@ export default class Input extends React.Component {
     };
 
     this.onChange = this.onChange.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { resetChild, resetFinished } = nextProps;
+    if (resetChild) {
+      this.setState({
+        dirty: false,
+      });
+      resetFinished();
+    }
   }
 
   onChange({ target: { value } }) {
@@ -34,7 +45,7 @@ export default class Input extends React.Component {
       dirty,
     } = this.state;
 
-    const showError = !validate && (dirty || formDirty)
+    const showError = !validate && (dirty || formDirty);
 
     return (
       <div className={`form-control ${showError && 'error'}`}>
@@ -49,3 +60,19 @@ export default class Input extends React.Component {
     );
   }
 }
+
+Input.defaultProps = {
+  value: '',
+  validate: undefined,
+};
+
+Input.propTypes = {
+  label: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  validate: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  validationMessage: PropTypes.string.isRequired,
+  formDirty: PropTypes.bool.isRequired,
+  resetChild: PropTypes.bool.isRequired,
+  resetFinished: PropTypes.func.isRequired,
+  onDataChange: PropTypes.func.isRequired,
+};

@@ -9,8 +9,7 @@ import getTotal from '../helper/getTotal';
 import DetailsForm from './DetailsForm';
 import PizzaViewer from './PizzaViewer';
 
-export default class PizzaCreator extends React.Component { 
-
+export default class PizzaCreator extends React.Component {
   constructor(props) {
     super(props);
 
@@ -21,6 +20,7 @@ export default class PizzaCreator extends React.Component {
       detailsFormDirty: false,
       sizeError: false,
       showConfirmationModal: false,
+      resetChild: false,
     };
 
     this.onToppingClick = this.onToppingClick.bind(this);
@@ -31,7 +31,8 @@ export default class PizzaCreator extends React.Component {
     this.onCancelButtonClick = this.onCancelButtonClick.bind(this);
     this.onResetButtonClick = this.onResetButtonClick.bind(this);
     this.onPlaceButtonClick = this.onPlaceButtonClick.bind(this);
-  };
+    this.resetFinished = this.resetFinished.bind(this);
+  }
 
   // #region
   onToppingClick(topping) {
@@ -126,33 +127,25 @@ export default class PizzaCreator extends React.Component {
   }
 
   onResetButtonClick() {
-    const { customer } = this.state;
-    const newCustomer = {};
-
-    Object.keys(customer).forEach((key) => {
-      newCustomer[key] = null;
-    });
-
     this.setState({
-      selectedToppings: [],
-      customer: newCustomer,
       selectedSize: null,
+      selectedToppings: [],
+      detailsFormData: {},
+      detailsFormDirty: false,
+      sizeError: false,
+      showConfirmationModal: false,
+      resetChild: true,
     });
   }
 
   onPlaceButtonClick() {
-    const { detailsFormData, selectedSize } = this.state;
+    const { selectedSize } = this.state;
 
-    // eslint-disable-next-line no-restricted-globals
     this.setState({
       detailsFormDirty: true,
     });
 
-    const validate = this.validateDetailsFormData(detailsFormData);
-
-    if (!validate) {
-      return;
-    }
+    const validate = this.validateDetailsFormData();
 
     if (!selectedSize) {
       this.setState({
@@ -160,17 +153,27 @@ export default class PizzaCreator extends React.Component {
       });
       return;
     }
+
+    if (!validate) {
+      return;
+    }
+
     this.setState({
       showConfirmationModal: true,
     });
   }
 
-  validateDetailsFormData(data) {
-    if (Object.keys(data).length !== 6) return false;
-    return Object.values(data).every(v => !!v);
+  validateDetailsFormData() {
+    const { detailsFormData } = this.state;
+    if (Object.keys(detailsFormData).length !== 6) return false;
+    return Object.values(detailsFormData).every(v => !!v);
   }
 
-  //#endregion
+  resetFinished() {
+    this.setState({
+      resetChild: false,
+    });
+  }
 
   render() {
     const {
@@ -180,6 +183,7 @@ export default class PizzaCreator extends React.Component {
       selectedToppings,
       showConfirmationModal,
       sizeError,
+      resetChild,
     } = this.state;
 
     return (
@@ -195,7 +199,7 @@ export default class PizzaCreator extends React.Component {
           )
         }
         <PizzaViewer
-          selectedToppings = {selectedToppings}
+          selectedToppings={selectedToppings}
         />
         <div className="main">
           <Section title="Enter Your Details">
@@ -203,6 +207,8 @@ export default class PizzaCreator extends React.Component {
               data={detailsFormData}
               dirty={detailsFormDirty}
               onDataChange={this.onDetailsFormDataChange}
+              resetChild={resetChild}
+              resetFinished={this.resetFinished}
             />
           </Section>
           <Section title="Pick Your Pizza">

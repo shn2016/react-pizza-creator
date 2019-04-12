@@ -1,6 +1,8 @@
 import React from 'react';
-import base from '../images/base.svg';
+import PropTypes from 'prop-types';
+import ProductPropTypes from '../PropTypes/ProductPropTypes';
 import board from '../images/board.svg';
+import base from '../images/base.svg';
 
 const Previewer = ({ selectedToppings }) => (
   <div className="pizza-viewer">
@@ -24,5 +26,8 @@ const Previewer = ({ selectedToppings }) => (
   </div>
 );
 
+Previewer.propTypes = {
+  selectedToppings: PropTypes.arrayOf(PropTypes.shape(ProductPropTypes)).isRequired,
+};
 
 export default Previewer;

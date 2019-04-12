@@ -156,29 +156,19 @@ body {
   text-align: right;
   font-size: 1.25rem;
 }
-button[type="submit"] {
+.section > button {
   width: 100%;
   background: #98C550;
   border: none;
   padding: 10px 15px;
+  margin: 5px;
   text-align: center;
   font-size: 1.5rem;
   color: white;
   border-radius: 5px;
   cursor: pointer;
 }
-button[type="reset"] {
-  margin-top: 15px;
-  width: 100%;
-  background: #98C550;
-  border: none;
-  padding: 10px 15px;
-  text-align: center;
-  font-size: 1.5rem;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
+
 button.amount {
   width: 2rem;
   height: 2rem;
@@ -196,7 +186,7 @@ button.amount:active {
 
 
 /* submit modal */
-.modal {
+.confirmation-modal {
   position: fixed;
   top: 0;
   right: 0;
@@ -206,6 +196,7 @@ button.amount:active {
   justify-content: center;
   align-items: flex-start;
   background: rgba(0,0,0,0.75);
+  z-index: 1;
 }
 .modal-box {
   border-top: 5px solid #98C550;
