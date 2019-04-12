@@ -2,6 +2,13 @@
 
 Pizza Ordering is a sub project of [pizza-ordering-system](https://github.com/shn2016/pizza-ordering-system).
 
+## Demos
+
+Click these websites to go to the live demo of pizza creator project. They are all deployed on `github pages` and 'heroku'.
+
+* [Pizza Creator](https://shn2016.github.io/react-pizza-creator/)
+* [Pizza Admin System](https://shn2016.github.io/pizza-creator-admin/)
+* [Pizza Backend API](https://pizza-admin-api.herokuapp.com/explorer/): `Cold Load as I used free plan, might take a few seconds`
 
 ## Introduction
 
