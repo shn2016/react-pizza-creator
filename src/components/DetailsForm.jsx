@@ -64,6 +64,7 @@ const DetailsForm = ({
         validationMessage="Please enter your name"
         resetChild={resetChild}
         resetFinished={resetFinished}
+        data-cy="name"
       />
       <Input
         label="Email"
