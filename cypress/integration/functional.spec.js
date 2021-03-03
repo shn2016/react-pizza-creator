@@ -6,6 +6,7 @@ describe("test pizza maker functionality", () => {
     })
 
     it("tests there are inputs for contact", () => {
-        cy.get(':nth-child(1) > input').type("hello")
+        cy.get(':nth-child(1) > input').type("hello");
+        cy.get(':nth-child(2) > input').type("hey");
     })
 })

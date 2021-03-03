@@ -7,7 +7,7 @@ body {
 
 /* this is the sidebar: */
 .pizza-viewer {
-  background: #3a424f;
+  background: purple;
 }
 .pizza-container {
   width: 500px;
@@ -158,7 +158,7 @@ body {
 }
 .section > button {
   width: 100%;
-  background: #98C550;
+  background: blue;
   border: none;
   padding: 10px 15px;
   margin: 5px;
@@ -252,7 +252,7 @@ button.amount:active {
   cursor: pointer;
 }
 .modal-box .actions button.confirm {
-  background: #98C550;
+  background: blue;
 }
 .modal-box .actions button.cancel {
   background: #e74c3c;
